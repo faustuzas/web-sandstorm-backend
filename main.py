@@ -4,7 +4,12 @@ from image import ImageProvider, prepare_image_base64
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/')
+def hello():
+    return 'Welcome to Sandstorm'
+
+
+@app.route('/mustaches', methods=['POST'])
 def put_mustaches():
     data = request.get_json(force=True)
 
