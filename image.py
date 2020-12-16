@@ -32,4 +32,5 @@ def extract_url_extension(url_):
 def prepare_image_base64(image_path):
     with open(image_path, 'rb') as f:
         encoded_string = base64.b64encode(f.read())
-        return f"data:image/png;base64, {encoded_string.decode('utf-8')}"
+        return encoded_string.decode('utf-8')
+        # return f"data:image/png;base64, {encoded_string.decode('utf-8')}"
