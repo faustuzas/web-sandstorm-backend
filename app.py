@@ -9,12 +9,13 @@ def hello():
     return 'Welcome to Sandstorm'
 
 
-@app.route('/mustaches', methods=['POST'])
+@app.route('/mustaches', methods=['GET'])
 def put_mustaches():
-    data = request.get_json(force=True)
+    image_url = request.args.get('url')
+    print(image_url)
 
-    with ImageProvider(data['imageUrl'], 'hello') as image_path:
-        return prepare_image_base64(image_path)
+    with ImageProvider(image_url, 'hello') as image_path:
+        return prepare_image_base64('images/zedge.png')
 
 
 if __name__ == '__main__':
