@@ -14,8 +14,8 @@ class ImageProvider:
         self.filename_to_save = filename_to_save
 
     def __enter__(self):
-        filename = self.filename_to_save + extract_url_extension(self.url)
-        (saved_image_path, _) = urlretrieve(self.url, filename)
+        filename = str(self.filename_to_save) + extract_url_extension(self.url)
+        (saved_image_path, _) = urlretrieve(self.url.replace(" ", "%20"), filename)
 
         self.saved_image_path = saved_image_path
         return self.saved_image_path
@@ -26,7 +26,7 @@ class ImageProvider:
 
 def extract_url_extension(url_):
     path = urlparse(url_).path
-    return os.path.splitext(path)[1]
+    return os.path.splitext(path)[1] or '.jpg'
 
 
 def prepare_image_base64(image_path):
