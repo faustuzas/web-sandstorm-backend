@@ -23,10 +23,10 @@ def put_mustaches():
         except Exception:
             print("no mustaches :/")
 
-        try:
-            wear_a_glass(image_path)
-        except Exception:
-            print("no glasses :/")
+        # try:
+        #     wear_a_glass(image_path)
+        # except Exception:
+        #     print("no glasses :/")
         # try:
         #     if randint(0, 1) == 0:
         #         add_mustaches(image_path)
