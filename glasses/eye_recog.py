@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-eye_cascade = cv2.CascadeClassifier('eye.xml')
-face_cascade = cv2.CascadeClassifier('face.xml')
+eye_cascade = cv2.CascadeClassifier('glasses/eye.xml')
+face_cascade = cv2.CascadeClassifier('glasses/face.xml')
 
 glass_img = cv2.imread('g3.jpg')
 
