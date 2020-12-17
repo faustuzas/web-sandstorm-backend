@@ -4,7 +4,7 @@ from flask import Flask, request, send_file
 from image import ImageProvider
 from face_detection import add_mustaches
 
-from glasses.eye_recog import wear_a_glass
+from face_detection import add_glasses
 
 app = Flask(__name__)
 
@@ -23,10 +23,10 @@ def put_mustaches():
         except Exception:
             print("no mustaches :/")
 
-        # try:
-        #     wear_a_glass(image_path)
-        # except Exception:
-        #     print("no glasses :/")
+        try:
+            add_glasses(image_path)
+        except Exception:
+            print("no glasses :/")
         # try:
         #     if randint(0, 1) == 0:
         #         add_mustaches(image_path)
