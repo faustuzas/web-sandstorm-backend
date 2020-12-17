@@ -92,7 +92,7 @@ def resize_mustache(image, width, height):
     return cv2.resize(image, (width, height))
 
 
-mouth_cascade = cv2.CascadeClassifier('mouth_cascade.xml')
+mouth_cascade = cv2.CascadeClassifier('cascades/mouth_cascade.xml')
 
 
 def add_mustaches(image_path):
@@ -107,4 +107,3 @@ def add_mustaches(image_path):
         image = overlay_transparent(image, mustaches,  x - int(w / 2), y - int(0.8 * h))
 
     cv2.imwrite(image_path, image)
-
