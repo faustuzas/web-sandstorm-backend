@@ -1,8 +1,10 @@
-from random import random
+from random import random, randint
 
 from flask import Flask, request, send_file
 from image import ImageProvider
 from face_detection import add_mustaches
+
+from glasses.eye_recog import wear_a_glass
 
 app = Flask(__name__)
 
@@ -19,7 +21,19 @@ def put_mustaches():
         try:
             add_mustaches(image_path)
         except Exception:
-            print('could not :/')
+            print("no mustaches :/")
+
+        try:
+            wear_a_glass(image_path)
+        except Exception:
+            print("no glasses :/")
+        # try:
+        #     if randint(0, 1) == 0:
+        #         add_mustaches(image_path)
+        #     else:
+        #         add_glasses(image_path)
+        # except Exception:
+        #     print('could not :/')
 
         return send_file(image_path)
 
