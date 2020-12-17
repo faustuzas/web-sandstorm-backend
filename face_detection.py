@@ -103,7 +103,6 @@ def add_mustaches(image_path):
     mouth_rects = mouth_cascade.detectMultiScale(gray, 1.7, 11)
     for (x, y, w, h) in mouth_rects:
         y = int(y - 0.15 * h)
-        # overlay_transparent(frame, mustaches_img, x, y)
         mustaches = resize_mustache(mustaches_img, w * 2, h * 2)
         image = overlay_transparent(image, mustaches,  x - int(w / 2), y - int(0.8 * h))
 
